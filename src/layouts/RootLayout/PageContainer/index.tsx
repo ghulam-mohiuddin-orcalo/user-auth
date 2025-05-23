@@ -4,7 +4,7 @@ import { type PageContainerProps } from '@toolpad/core/PageContainer';
 
 export default function PageContainer({ children, ...props }: PageContainerProps) {
   return (
-    <MuiContainer {...props}>
+    <MuiContainer {...props} sx={{ maxWidth: '100% !important', ...props.sx }}>
       {children}
     </MuiContainer>
   )
