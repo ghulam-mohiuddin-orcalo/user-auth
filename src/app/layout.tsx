@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { StoreProvider } from "@/providers/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,12 +13,14 @@ export default function InitialLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-toolpad-color-scheme="light" suppressHydrationWarning>
-      <body>
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          {children}
-        </AppRouterCacheProvider>
-      </body>
-    </html>
+    <StoreProvider>
+      <html lang="en" data-toolpad-color-scheme="light" suppressHydrationWarning>
+        <body>
+          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+            {children}
+          </AppRouterCacheProvider>
+        </body>
+      </html>
+    </StoreProvider>
   );
 }
