@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-
+import { validateTags } from './validateTags'
 // Define a base API service
 export const api = createApi({
   // Unique key for the reducer
@@ -21,7 +21,8 @@ export const api = createApi({
   refetchOnReconnect: true, // Refetch after reconnecting to the internet
 
   // Define endpoints (you'll add these later)
-  endpoints: () => ({}),
+  endpoints: (builder) => ({}),
+  tagTypes: validateTags,
 });
 
 // Export hooks for usage in components

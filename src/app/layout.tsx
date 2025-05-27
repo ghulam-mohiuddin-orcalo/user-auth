@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
-import { StoreProvider } from "@/providers/StoreProvider";
+import { StoreProvider } from "@/redux/store/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
