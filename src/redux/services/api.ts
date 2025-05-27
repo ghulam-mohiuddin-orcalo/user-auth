@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { validateTags } from './validateTags'
+import { providesTags } from './providesTags'
 // Define a base API service
 export const api = createApi({
   // Unique key for the reducer
@@ -7,7 +7,7 @@ export const api = createApi({
 
   // Base URL for all endpoints
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://your-api.com/',
+    baseUrl: 'https://jsonplaceholder.typicode.com',
     // Global headers (e.g., auth token)
     prepareHeaders: (headers) => {
       const token = localStorage.getItem('token');
@@ -17,12 +17,16 @@ export const api = createApi({
   }),
 
   // Auto-refetching behavior (optional)
-  refetchOnFocus: true, // Refetch when window regains focus
-  refetchOnReconnect: true, // Refetch after reconnecting to the internet
+  // refetchOnFocus: true, // Refetch when window regains focus
+  // refetchOnReconnect: true, // Refetch after reconnecting to the internet
 
   // Define endpoints (you'll add these later)
-  endpoints: (builder) => ({}),
-  tagTypes: validateTags,
+  endpoints: (builder) => ({
+    getExample: builder.query<string, void>({
+      query: () => 'example-endpoint',
+    }),
+  }),
+  tagTypes: providesTags,
 });
 
 // Export hooks for usage in components

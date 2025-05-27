@@ -1,9 +1,9 @@
 import { combineSlices } from "@reduxjs/toolkit";
 import { api } from "@/redux/services/api";
-import counterSlice from "@/redux/features/counter/counterSlice";
+import { counterReducer } from "@/redux/features/counter/counterSlice";
 
 const staticSlices = {
-  counter: counterSlice.reducer,
+  counter: counterReducer,
   // Add other static slices here
 }
 
