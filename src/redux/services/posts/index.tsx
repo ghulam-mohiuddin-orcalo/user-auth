@@ -24,7 +24,11 @@ export const postsApi = api.injectEndpoints({
         method: 'GET',
         params
       }),
-      providesTags: ['POSTS'],
+      providesTags: (result, error, arg) => {
+        return result
+          ? [...result.map(({ id }) => ({ type: 'POSTS', id })), { type: 'POSTS', id: 'LIST' }]
+          : [{ type: 'POSTS', id: 'LIST' }];
+      },
     }),
 
     getPostById: builder.query<Post, string>({
@@ -41,7 +45,24 @@ export const postsApi = api.injectEndpoints({
         method: 'POST',
         body: newPost,
       }),
-      invalidatesTags: ['POSTS'],
+      invalidatesTags: [{ type: 'POSTS', id: 'LIST' }],
+    }),
+
+    updatePost: builder.mutation<Post, Partial<Post> & { id: string }>({
+      query: ({ id, ...patch }) => ({
+        url: `/posts/${id}`,
+        method: 'PUT',
+        body: patch,
+      }),
+      invalidatesTags: (result, error, { id }) => [{ type: 'POSTS', id }],
+    }),
+
+    deletePost: builder.mutation<{ id: string }, string>({
+      query: (id) => ({
+        url: `/posts/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: (result, error, id) => [{ type: 'POSTS', id }],
     }),
 
   }),

@@ -1,8 +1,8 @@
-import { TypedUseSelectorHook, useDispatch, useSelector, useStore } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import type { Action, ThunkAction } from "@reduxjs/toolkit";
+import { TypedUseSelectorHook, useDispatch, useSelector, useStore } from "react-redux";
 import { rootReducer, RootState } from "./rootReducer";
 import { api } from "@/redux/services/api";
+import type { Action, ThunkAction } from "@reduxjs/toolkit";
 
 
 // Store setup

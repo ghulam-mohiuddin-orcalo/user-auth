@@ -16,16 +16,8 @@ export const api = createApi({
     },
   }),
 
-  // Auto-refetching behavior (optional)
-  // refetchOnFocus: true, // Refetch when window regains focus
-  // refetchOnReconnect: true, // Refetch after reconnecting to the internet
 
-  // Define endpoints (you'll add these later)
-  endpoints: (builder) => ({
-    getExample: builder.query<string, void>({
-      query: () => 'example-endpoint',
-    }),
-  }),
+  endpoints: () => ({}),
   tagTypes: providesTags,
 });
 

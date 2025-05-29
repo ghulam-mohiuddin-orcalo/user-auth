@@ -6,9 +6,9 @@ import { useAppSelector } from '@/redux/store/store'
 import { useGetPostsQuery } from '@/redux/services/posts'
 
 function AboutPage() {
-  const { data, error, isLoading } = useGetPostsQuery()
-  console.log('error:::', error)
+  const { data, error, isLoading } = useGetPostsQuery({})
   const count = useAppSelector((state) => state.counter.value)
+
   return (
     <Box>
       <Typography variant="h6">{count}</Typography>

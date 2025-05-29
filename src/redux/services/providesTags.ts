@@ -1,3 +1,3 @@
 export const providesTags = [
-  'POSTS'
+  'POSTS',
 ]
