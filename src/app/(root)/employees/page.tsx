@@ -15,12 +15,12 @@ function AboutPage() {
       {isLoading && <Typography>Loading...</Typography>}
       <Grid container spacing={2}>
         {data && (
-          data.map((post) => (
-            <Grid key={post.id} size={{ xs: 12, sm: 6, md: 4 }}>
+          data?.map((post) => (
+            <Grid key={post._id} size={{ xs: 12, sm: 6, md: 4 }}>
               <Card>
                 <CardContent>
-                  <Typography variant="h5">{post.title}</Typography>
-                  <Typography variant="body2">{post.body}</Typography>
+                  <Typography variant="h5">{post.faqQuestion}</Typography>
+                  <Typography variant="body2">{post.faqCategory.description}</Typography>
                 </CardContent>
               </Card>
             </Grid>

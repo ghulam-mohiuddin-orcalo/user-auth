@@ -19,8 +19,8 @@ export const NAVIGATION: Navigation = [
     pattern: 'employees{/:employeeId}*',
   },
   {
-    segment: 'contact',
-    title: 'Contact',
+    segment: 'login',
+    title: 'Login',
     icon: <PersonIcon />,
   },
 ];
